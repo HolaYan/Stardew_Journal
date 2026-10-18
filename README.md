@@ -10,7 +10,7 @@
 
 约 1 分钟的 2 倍速演示，连续展示村民来访、种下待办、收获、动物照料、钓鱼，以及下厨和冰箱。
 
-[观看／下载 2 倍速演示视频](https://github.com/HolaYan/Stardew_Journal/releases/download/v2.0.0/Stardew-Journal-demo-2x.mp4)
+https://github.com/user-attachments/assets/bffdd85b-8c6f-45f5-9bf1-a26419f9e50f
 
 ## 下载与安装
 
