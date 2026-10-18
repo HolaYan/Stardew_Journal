@@ -1,0 +1,10 @@
+dist/
+.build/
+output/
+.DS_Store
+node_modules/
+tmp/
+*.log
+.env
+.env.*
+web/game-assets/

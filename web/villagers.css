@@ -1,0 +1,28 @@
+/* Compact dialogue panel, using the locally imported game panel border. */
+.villager-visits{color:#694b2c;background:#ffefcc;border:1px solid #d7b579;border-radius:3px;padding:12px 15px 9px;margin:0 0 22px;min-width:0;box-shadow:0 2px 0 #b8945424}
+.game-art .villager-visits{border:8px solid transparent;border-image:var(--game-panel) 6 fill / 8px / 0 stretch;border-radius:0;padding:8px 12px 5px;image-rendering:pixelated}
+.vv-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.vv-title{font:600 11px/1.5 var(--sans);letter-spacing:1px;margin:0;white-space:nowrap;color:#896235}
+.vv-controls{display:flex;align-items:center;gap:8px;min-width:0}
+.vv-select,.game-art .vv-select{font-size:10px;color:#8e6c3d;background:#fff5dc;border:1px solid #d9ba85;border-radius:2px;width:108px;min-height:27px;padding:3px 5px;cursor:pointer}
+.vv-next{display:inline-flex;align-items:center;justify-content:center;gap:4px;min-height:28px;padding:2px 0 2px 3px;color:#91733e;font-size:10px;white-space:nowrap}
+.vv-next:hover{color:#5d642d}.vv-next:disabled,.vv-select:disabled{opacity:.5;cursor:default}
+.vv-refresh{font-size:19px;line-height:1}
+.vv-conversation{display:flex;align-items:center;gap:13px;min-height:64px}
+.vv-portrait-frame{display:flex;align-items:center;justify-content:center;flex:0 0 66px;width:66px;height:66px;border:1px solid #d7b579;background:#ecd5aa;box-shadow:inset 0 0 0 2px #ffedc5;overflow:hidden;image-rendering:pixelated}
+.vv-portrait{display:block;width:64px;height:64px;object-fit:none;object-position:left top;image-rendering:pixelated}
+.vv-portrait-sprite{width:32px;height:64px;object-fit:fill;object-position:center}
+.vv-portrait-missing{background:repeating-linear-gradient(45deg,#eedcb8,#eedcb8 4px,#f5e7c8 4px,#f5e7c8 8px)}
+.vv-copy{flex:1;min-width:0}
+.vv-name{font-weight:600;font-size:11px;letter-spacing:.6px;margin:0 0 4px;color:#7a532d}
+.vv-quote{font:12px/1.85 var(--sans);color:#765a38;margin:0;overflow-wrap:anywhere;white-space:pre-line;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.vv-quote-expanded{-webkit-line-clamp:unset;display:block;overflow:visible}
+.vv-foot{display:flex;align-items:center;justify-content:flex-end;gap:12px;min-height:14px;margin-top:3px;padding-left:79px}
+.vv-no-portrait .vv-foot{padding-left:0}
+.vv-source{color:#b59b6e;font-size:8px;letter-spacing:.3px;white-space:nowrap}
+.vv-more{margin-right:auto;padding:1px 0;color:#9c7b43;font-size:9px;text-decoration:underline;text-underline-offset:3px}
+.vv-more:hover{color:#5d642d}
+.vv-empty .vv-conversation{min-height:53px}.vv-empty .vv-name{color:#9b7b4d}.vv-empty .vv-quote{color:#ac946d;font-size:11px}
+.vv-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.compact .villager-visits{margin-bottom:17px}.compact .vv-heading{gap:8px}.compact .vv-quote{font-size:11px}.compact .vv-controls{gap:6px}
+@media(max-width:420px){.villager-visits{padding:10px}.game-art .villager-visits{padding:6px 7px 3px}.vv-heading{gap:6px}.vv-controls{gap:6px}.vv-select,.game-art .vv-select{width:94px}.vv-title{font-size:10px}.vv-next-label{font-size:9px}.vv-conversation{gap:10px}.vv-quote{font-size:11px}.vv-foot{padding-left:76px}}

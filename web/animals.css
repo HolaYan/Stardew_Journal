@@ -1,0 +1,27 @@
+.farm-activities{display:flex;gap:8px;margin:-5px 0 19px;flex-wrap:wrap}
+.activity-button{border:1px solid #d8bd88;background:#f5e8c5;color:#886537;border-radius:2px;padding:6px 11px;font-size:11px;min-height:32px}
+.activity-button:hover{background:#e9ddb2;color:#5f6535}
+.animals-dialog{width:620px}
+.animals-dialog .dialog-heading{margin-bottom:8px}
+.animal-intro,.animal-note{font-size:11px;color:#9c8152;line-height:1.8;margin:8px 0 16px}
+.animal-note{margin:15px 0 0;font-size:10px}
+.animal-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.animal-card{border:1px solid #d4b579;background:#fff6db;padding:12px;min-width:0;box-shadow:2px 2px #b3935920}
+.animal-habitat{height:92px;display:flex;align-items:center;justify-content:center;background:linear-gradient(#e5e2b0 65%,#e2c895 65%);position:relative;overflow:hidden;border:1px solid #d7c58d}
+.animal-habitat>.game-sprite{filter:drop-shadow(2px 2px 0 #8a643835)}
+.animal-heart{position:absolute;right:16%;top:8px;color:#ca755e;font-size:18px}
+.animal-card-heading{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;margin:11px 0}
+.animal-card-heading h3{font-size:14px;color:#76512b;margin:0}
+.animal-card-heading>span{font-size:10px;color:#9c7d4b;display:flex;align-items:center;gap:3px}
+.animal-steps{list-style:none;display:flex;gap:9px;padding:0;margin:0 0 12px;color:#b29c76;font-size:10px}
+.animal-steps .done{color:#748443}
+.animal-card>button{width:100%;font-size:11px;min-height:36px;white-space:normal}
+.animal-card>small{display:block;text-align:center;color:#b09c72;font-size:9px;margin-top:7px}
+.animal-card.is-cared{background:#f1edcf}
+.animal-card button:disabled{cursor:default;opacity:.65}
+.animal-feedback{font-size:11px;color:#768242;min-height:1.7em;margin:10px 0 0}
+@media(max-width:420px){.animal-cards{gap:8px}.animal-card{padding:8px}.animal-steps{gap:6px;font-size:9px}.animal-card-heading{gap:3px}.animal-card-heading h3{font-size:12px}.animal-habitat{height:80px}.animal-heart{right:10%}.farm-activities{gap:6px}.activity-button{flex:1;font-size:10px;padding:6px}}
+
+.animal-houses{display:flex;gap:8px;margin:0 0 14px}
+.animal-houses button{flex:1;border:1px solid #d6bb84;background:#f1e1b9;padding:8px 5px;color:#967440;font-size:11px;border-radius:2px}
+.animal-houses button[aria-pressed=true]{color:#626d36;background:#e3dfb1;border-color:#a9af6b;box-shadow:inset 0 -2px #a9af6b}

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src https://api.open-meteo.com https://geocoding-api.open-meteo.com; object-src 'none'; base-uri 'none'">
+  <title>Stardew Journal · 待办清单</title>
+  <link rel="icon" href="game-assets/ui/chicken.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="garden.css">
+  <link rel="stylesheet" href="villagers.css">
+  <link rel="stylesheet" href="farm-interaction.css">
+  <link rel="stylesheet" href="fishing.css">
+  <link rel="stylesheet" href="animals.css">
+  <script defer src="model.js"></script>
+  <script defer src="farm.js"></script>
+  <script defer src="game-ui.js"></script>
+  <script defer src="game-assets/game-data.js"></script>
+  <script defer src="garden.js"></script>
+  <script defer src="villagers.js"></script>
+  <script defer src="fishing.js"></script>
+  <script defer src="animals.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="toolbar">
+      <a class="brand" href="#" aria-label="Stardew Journal · 待办清单首页"><img src="game-assets/ui/chicken.png" alt="" width="28" height="28"><strong>Stardew Journal</strong><span>待办清单</span></a>
+      <div class="window-tools">
+        <button class="icon-button" id="compact-button" title="切换小组件模式" aria-label="切换小组件模式" aria-pressed="false" data-icon="compact"></button>
+        <button class="icon-button" id="pin-button" title="窗口置顶" aria-label="窗口置顶" aria-pressed="false" data-icon="pin"></button>
+        <span class="tool-divider"></span>
+        <button class="icon-button" id="settings-button" title="农场设置" aria-label="农场设置" data-icon="settings"></button>
+      </div>
+    </header>
+
+    <section class="landscape" aria-label="随季节和天气变化的像素农场">
+      <canvas id="farm-canvas" aria-hidden="true"></canvas>
+      <div class="date-sign"><span class="pixel-calendar" aria-hidden="true"><span id="day-number"></span></span><div><strong id="today-label"></strong><span id="season-message"></span></div></div>
+      <button class="weather-sign" id="weather-button" title="设置季节与天气"><span id="weather-icon" aria-hidden="true"></span><span><strong id="weather-label">晴好</strong><small id="weather-source">装饰天气</small></span></button>
+      <div class="farm-name"><span class="tiny-leaf">✦</span> 星露谷总有下一个春天</div>
+    </section>
+
+    <main>
+      <div class="intro"><div><p class="eyebrow">A LITTLE PROGRESS, EVERY DAY</p><h1>星露谷总有下一个春天</h1><p class="intro-copy">一件待办，一株作物。把努力收藏成生活的滋味。</p></div><button class="primary-button" id="add-button"><span data-icon="plus"></span>种下新待办</button></div>
+      <nav class="places" aria-label="农场空间">
+        <button class="place active" data-place="field" aria-pressed="true"><span class="place-art" id="place-field-art"></span>农田<span id="field-total" class="place-count">0</span></button>
+        <button class="place" data-place="storage" aria-pressed="false"><span class="place-art" id="place-storage-art"></span>仓库<span id="storage-total" class="place-count">0</span></button>
+        <button class="place" data-place="kitchen" aria-pressed="false"><span class="place-art" id="place-kitchen-art"></span>厨房</button>
+        <button class="place" data-place="fridge" aria-pressed="false"><span class="place-art" id="place-fridge-art"></span>冰箱<span id="fridge-total" class="place-count">0</span></button>
+      </nav>
+      <nav class="farm-activities" aria-label="农场休闲"><button id="fishing-button" class="activity-button">鱼塘 · 钓一会儿鱼</button><button id="animals-button" class="activity-button">鸡舍与畜棚 · 照料动物</button></nav>
+      <div id="field-view">
+      <nav class="horizons" aria-label="待办时间范围">
+        <button class="horizon active" data-days="7" aria-pressed="true"><span class="horizon-art seed" data-icon="sprout"></span><span><strong>下一周</strong><small>慢慢发芽 · 7 天内</small></span><b id="count-7">0</b></button>
+        <button class="horizon" data-days="30" aria-pressed="false"><span class="horizon-art plant" data-icon="plant"></span><span><strong>一个月</strong><small>向上生长 · 30 天内</small></span><b id="count-30">0</b></button>
+        <button class="horizon" data-days="90" aria-pressed="false"><span class="horizon-art wheat" data-icon="wheat"></span><span><strong>三个月</strong><small>期待收获 · 90 天内</small></span><b id="count-90">0</b></button>
+      </nav>
+      <div class="workspace">
+        <section class="todo-board" aria-label="待办清单">
+          <div class="list-toolbar"><div class="category-filters" aria-label="待办分类"><button class="filter active" data-category="all" aria-pressed="true">全部</button><button class="filter" data-category="life" aria-pressed="false">生活</button><button class="filter" data-category="work" aria-pressed="false">工作</button><button class="filter" data-category="growth" aria-pressed="false">成长</button></div><label class="completed-toggle"><input type="checkbox" id="show-completed">已完成</label></div>
+          <div class="range-caption"><span id="range-label"></span><button class="text-button" id="all-tasks">全部待办 <span aria-hidden="true">↗</span></button></div>
+          <div id="task-list"></div>
+          <button class="quick-add" id="quick-add"><span data-icon="plus"></span>再种下一件小事<span class="shortcut">⌘ N</span></button>
+        </section>
+        <aside class="garden-sidebar">
+          <section class="calendar-section"><div class="aside-heading"><h2>日子慢慢走</h2><span id="calendar-month"></span></div><div class="week-strip" id="week-strip"></div><p class="calendar-caption"><span class="legend-dot"></span> 有待办的日子，记得留一点时间</p></section>
+          <section class="harvest-section"><div class="aside-heading"><h2>这一季的小收获</h2><span class="harvest-star">✧</span></div><div class="harvest-main"><div class="harvest-emblem" data-icon="basket"></div><div><strong id="harvest-count">0<span> 件</span></strong><p>今天完成的小事</p></div></div><div class="progress-track"><div id="progress-fill"></div></div><p id="progress-caption">每一颗种子，都有自己的节奏。</p></section>
+          <div class="field-note"><span class="note-pin"></span><p>不必一口气做完所有事。<br>今天照顾好一小块田，<br>就已经很好了。</p><span class="note-signature">— 留给下一个春天</span><span class="note-flower" data-icon="flower"></span></div>
+        </aside>
+      </div>
+      </div>
+      <section id="storage-view" class="place-view" hidden aria-label="作物仓库"></section>
+      <section id="kitchen-view" class="place-view" hidden aria-label="农场厨房"></section>
+      <section id="fridge-view" class="place-view" hidden aria-label="料理冰箱"></section>
+      <section id="villager-visit" aria-label="村民来访"></section>
+    </main>
+    <footer><span id="save-status"><span class="status-dot"></span>待办保存在本机</span><span class="footer-right">按自己的季节生长 <span data-icon="sprout"></span></span></footer>
+  </div>
+
+  <dialog id="task-dialog" class="task-dialog"><form id="task-form"><div class="dialog-heading"><div><p class="eyebrow">PLANT A LITTLE INTENTION</p><h2 id="task-dialog-title">种下一件小事</h2></div><button class="icon-button" type="button" data-close="task-dialog" aria-label="关闭" data-icon="close"></button></div><input type="hidden" id="task-id"><label class="field-label" for="task-title">想做些什么？</label><input id="task-title" name="title" required maxlength="120" placeholder="比如，找一个下午去公园走走" autocomplete="off"><div class="form-row"><div><label class="field-label" for="task-due">什么时候收获</label><input type="date" id="task-due" required min="1900-01-01" max="9999-12-31"></div><div><label class="field-label" for="task-category">种在哪片田</label><select id="task-category"><option value="life">生活 · 好好过日子</option><option value="work">工作 · 一点点推进</option><option value="growth">成长 · 成为更好的自己</option></select></div></div><div class="date-shortcuts"><button type="button" data-offset="0">今天</button><button type="button" data-offset="1">明天</button><button type="button" data-offset="6">一周内</button><button type="button" data-offset="29">一个月内</button><button type="button" data-offset="89">三个月内</button></div><div class="crop-picker-heading"><label class="field-label" for="task-crop">种什么作物？</label><span id="crop-tier-label"></span></div><input type="hidden" id="task-crop"><div id="crop-picker" class="crop-picker" role="group" aria-label="选择作物"></div><p id="crop-picker-help" class="crop-picker-help"></p><label class="field-label" for="task-note">留张小纸条 <span>选填</span></label><textarea id="task-note" maxlength="2000" rows="3" placeholder="一点想法、几个步骤，或者给自己的鼓励…"></textarea><label class="priority-label"><input type="checkbox" id="task-priority"><span data-icon="star"></span>这件事很重要</label><p id="task-error" class="form-error" role="alert"></p><div class="dialog-actions"><button id="delete-task" type="button" class="danger-text" hidden>删除待办</button><span class="spacer"></span><button class="secondary-button" type="button" data-close="task-dialog">取消</button><button class="primary-button" type="submit" id="task-save">保存这颗种子</button></div><button type="submit" id="harvest-task" class="primary-button harvest-action" hidden>完成待办，收获作物</button></form></dialog>
+
+  <dialog id="settings-dialog" class="settings-dialog"><div class="dialog-heading"><div><p class="eyebrow">MAKE YOURSELF AT HOME</p><h2>布置你的农场</h2></div><button class="icon-button" data-close="settings-dialog" aria-label="关闭" data-icon="close"></button></div><div class="settings-content"><div class="setting-section"><h3>窗外的风景</h3><label class="field-label" for="season-select">季节</label><select id="season-select"><option value="auto">自动 · 跟随现实季节（北半球）</option><option value="spring">手动 · 春景</option><option value="summer">手动 · 夏景</option><option value="autumn">手动 · 秋景</option><option value="winter">手动 · 冬景</option></select><p class="setting-help">自动季节按电脑日期切换：3–5 月春、6–8 月夏、9–11 月秋、12–2 月冬。手动风景会固定季节，不影响实时天气。</p><label class="field-label" for="weather-select">天气</label><select id="weather-select"><option value="auto">实时天气 · 需选择城市</option><option value="sunny">晴天</option><option value="cloudy">多云</option><option value="rain">细雨</option><option value="storm">雷雨</option><option value="snow">落雪</option><option value="windy">微风</option><option value="fog">薄雾</option></select><label class="field-label" for="city-search">天气城市</label><div class="city-search-row"><input id="city-search" placeholder="城市名称，例如 北京 / New York" maxlength="80"><button class="secondary-button" id="city-search-button">查找</button></div><div id="city-results" class="city-results" aria-live="polite"></div><p id="city-current" class="setting-help"></p><button class="text-button" id="clear-city" hidden>取消城市设置</button><p class="setting-help">天气来自 <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a>。仅在选择城市后联网；无城市或断网时显示装饰天气。</p><label class="setting-checkbox"><input type="checkbox" id="reduce-motion">减少动态效果</label></div><div class="setting-section"><h3>照顾你的计划</h3><p class="setting-help">所有待办只保存在本机。导出一份备份，给计划留个安心的副本。</p><div class="backup-buttons"><button class="secondary-button" id="export-button">导出备份</button><button class="secondary-button" id="import-button">导入备份</button></div><input type="file" accept=".json,application/json" id="import-file" hidden><button class="text-button" id="demo-button">添加几件示例待办，逛逛农场 ↗</button><p class="setting-help">时间范围从今天起计算，包含今天；逾期事项会保留。90 天以后的计划可在「全部待办」查看。</p></div><div class="about"><img src="game-assets/ui/chicken.png" alt="" width="30" height="30"><div><strong>Stardew Journal <span>2.0</span></strong><p>把待办种成作物的桌面待办清单。</p><p>参考 <a href="https://github.com/SimoneScoop/Stardew-Desk" target="_blank" rel="noreferrer">Stardew Desk</a> · 本机游戏素材 © ConcernedApe</p><p id="game-assets-status">正在读取本机游戏素材…</p></div></div></div><div class="dialog-actions"><span class="spacer"></span><button class="primary-button" data-close="settings-dialog">回到农场</button></div></dialog>
+
+  <dialog id="confirm-dialog" class="confirm-dialog"><h2 id="confirm-title"></h2><p id="confirm-copy"></p><div class="dialog-actions"><button class="secondary-button" id="confirm-cancel">取消</button><button class="primary-button" id="confirm-ok">确认</button></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"><span id="toast-message"></span><button id="toast-action" hidden>撤销</button></div>
+</body>
+</html>

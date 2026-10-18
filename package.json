@@ -1,0 +1,14 @@
+{
+  "name": "stardew-journal",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Stardew Journal · 待办清单 — Stardew Valley desktop TODO, crops, harvests and kitchen",
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "check": "node --check web/app.js && node --check web/farm.js && node --check web/model.js && node --check web/game-ui.js && node --check web/garden.js && node --check web/villagers.js && node --check web/fishing.js && node --check web/animals.js",
+    "build": "sh scripts/build.sh",
+    "start": "sh scripts/run.sh",
+    "preview": "python3 -m http.server 4173 --bind 127.0.0.1 --directory web",
+    "package": "sh scripts/package-app.sh"
+  }
+}

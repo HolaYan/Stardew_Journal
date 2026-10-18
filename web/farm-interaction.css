@@ -1,0 +1,33 @@
+/* Native controls over the pixel scene keep every farm interaction keyboard accessible. */
+.farm-interactive{isolation:isolate}
+.farm-interactive canvas{pointer-events:none}
+.farm-interactive .farm-name{display:none}
+.farm-hotspots{position:absolute;inset:0;z-index:2;pointer-events:none}
+.farm-hotspot{position:absolute;display:block;pointer-events:auto;padding:0;border:1px solid transparent;border-radius:3px;background:transparent;color:#fff2c8;cursor:pointer;touch-action:manipulation;transition:background .15s,border-color .15s;min-width:0}
+.farm-hotspot:hover{background:#fff0ab26;border-color:#fff0a37a}
+.farm-hotspot:focus-visible{outline:2px solid #fff7c1;outline-offset:1px;border-color:#6c4a25;background:#fff0ab3b;z-index:5}
+.farm-hotspot-label{position:absolute;left:50%;bottom:-11px;transform:translateX(-50%);display:block;white-space:nowrap;font:500 9px/1.5 var(--sans);color:#fff1cc;text-shadow:1px 1px #4e371f;background:#4d361cce;padding:1px 5px;border:1px solid #e5bc744a;border-radius:2px;max-width:170px;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
+.farm-hotspot-place:hover .farm-hotspot-label,.farm-hotspot-place:focus-visible .farm-hotspot-label{background:#765022;color:#fff6d9}
+.farm-hotspot-crop .farm-hotspot-label{opacity:0;bottom:calc(100% + 4px);max-width:min(170px,48vw);z-index:6}
+.farm-hotspot-crop:hover,.farm-hotspot-crop:focus-visible{z-index:4}
+.farm-hotspot-crop:hover .farm-hotspot-label,.farm-hotspot-crop:focus-visible .farm-hotspot-label{opacity:1}
+.farm-hotspot-empty{border-color:#72512730;background:#b48a4d09}
+.farm-hotspot-empty .farm-hotspot-label{bottom:50%;transform:translate(-50%,50%);padding:0;border:0;background:transparent;color:#f4d79b8c;text-shadow:none;font-size:15px}
+.farm-hotspot-empty:hover .farm-hotspot-label,.farm-hotspot-empty:focus-visible .farm-hotspot-label{color:#fff3cd}
+.farm-hotspot-field .farm-hotspot-label,.farm-hotspot-exit .farm-hotspot-label,.farm-hotspot-plant .farm-hotspot-label{position:static;transform:none;max-width:100%;padding:2px 6px;background:#604222e6;color:#fff2cd;line-height:1.4}
+.farm-hotspot-field,.farm-hotspot-plant{border:0;border-radius:2px}
+.farm-hotspot-field .farm-hotspot-label{font-size:9px}
+.farm-hotspot-plant .farm-hotspot-label{font-size:13px;line-height:1.1;padding:1px 4px}
+.farm-hotspot-exit{border:0}
+.farm-hotspot-exit .farm-hotspot-label{font-size:10px;box-shadow:0 1px #261a0c}
+.farm-interactive .date-sign,.farm-interactive .weather-sign{z-index:3}
+.farm-interactive .date-sign{left:16px;top:10px;padding:5px 7px;gap:6px}
+.farm-interactive .pixel-calendar{height:25px;width:23px;font-size:13px}
+.farm-interactive .date-sign strong{font-size:10px}.farm-interactive .date-sign div>span{font-size:8px}
+.farm-interactive .weather-sign{right:16px;top:10px;padding:5px 8px;min-width:80px;gap:6px}
+.farm-interactive .weather-sign svg{height:22px;width:22px}.farm-interactive .weather-sign strong{font-size:10px}.farm-interactive .weather-sign small{font-size:8px}
+.farm-room-kitchen .date-sign,.farm-room-kitchen .weather-sign,.inside-house .date-sign,.inside-house .weather-sign{display:none}
+.farm-room-kitchen{border-bottom-color:#755634}
+.farm-room-kitchen .farm-hotspot-label{font-size:10px;padding:2px 7px}
+@media(max-width:420px){.farm-hotspot-label{font-size:8px;padding:1px 4px}.farm-hotspot-field .farm-hotspot-label{font-size:8px}.farm-room-kitchen .farm-hotspot-label{font-size:9px}.farm-hotspot-crop .farm-hotspot-label{max-width:125px}}
+@media(prefers-reduced-motion:reduce){.farm-hotspot{transition:none}}

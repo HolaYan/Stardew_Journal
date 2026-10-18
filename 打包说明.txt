@@ -1,0 +1,58 @@
+Stardew Journal 2.0.0 · 待办清单 · macOS 完整版
+星露谷总有下一个春天。
+
+下载最新版本：
+https://github.com/HolaYan/Stardew_Journal/releases/latest
+
+安装
+1. 下载 Stardew-Journal-macOS-完整版.zip，双击解压。
+2. 将解压后的 Stardew Journal.app 拖入“应用程序”（Applications）文件夹。
+3. 从“应用程序”打开 Stardew Journal。
+
+支持 macOS 11 及以上；同一安装包适用于 Apple 芯片和 Intel Mac。
+完整版已内置农场、厨房、作物、料理、村民肖像及中文对白。
+不需要安装《星露谷物语》、Stardew Desk、Node.js 或其他开发工具。
+待办、农场、钓鱼、动物照料、烹饪和对白可以离线使用；实时天气需要联网。
+
+首次打开
+当前版本采用本地临时签名，尚未经过 Apple 开发者公证。
+如果出现“无法验证开发者”或“Apple 无法检查是否包含恶意软件”的提示，
+请先确认安装包来自本仓库 Release，且你愿意运行此版本，再按以下步骤操作：
+1. 尝试打开一次 App，关闭提示。
+2. macOS 13 及以上：系统设置 → 隐私与安全性 → 找到 Stardew Journal → 仍要打开。
+   macOS 11／12：系统偏好设置 → 安全性与隐私 → 通用 → 仍要打开。
+3. 在后续对话框中确认“打开”，按系统要求完成认证。
+Apple 官方说明：https://support.apple.com/zh-cn/102445
+macOS 11 说明：https://support.apple.com/zh-cn/guide/mac-help/mh40616/11.0/mac/11.0
+如果提示“已损坏”或“将损坏你的电脑”，请先停止打开，并提供系统版本和提示内容：
+https://github.com/HolaYan/Stardew_Journal/issues
+
+开始使用
+点击农田空位或“＋”种下待办，填写日期并选择作物。
+下一周、一个月、三个月对应包含今天的 7／30／90 天计划，逾期未完成事项会保留。
+完成待办即可收获，作物自动进入仓库，不必等待游戏天数。
+点击屋门进入厨房，灶台打开菜谱，箱子打开仓库，冰箱展示料理。
+厨房展示 81 道原版食谱，现有食材来源支持其中 45 道；撤销烹饪会返还所用食材。
+点击鱼塘可以钓鱼，每日时长可设为 0–180 分钟，默认 10 分钟，0 表示关闭。
+鸡舍照料鸡和鸭，畜棚照料牛和羊；喂食、抚摸后可收取蛋和奶，每只动物每天一份。
+今日来访可以选择村民或随机来访，阅读原版中文对白。
+
+窗口与菜单栏
+拖动窗口边缘调整大小，标题栏按钮切换小组件模式，图钉控制置顶。
+关闭窗口后，点击菜单栏小鸡重新打开；⌘N 新建待办，⌘Q 完全退出。
+设置中可选季节和天气，并导出／导入备份。小组件模式是桌面小窗口，不是通知中心小组件。
+
+数据保存在本机
+当前用户的数据文件：~/Library/Application Support/Meadow/state.json
+待办、种植、收获、烹饪、钓鱼和动物照料等进度均保存在这里。
+不与 Apple“提醒事项”同步，也没有账号或云同步。
+应用包不包含制作者的个人待办或存档；更新 App 不会覆盖此数据目录。
+建议更新或换电脑前，在设置中导出备份；导入会校验并要求确认替换当前数据。
+Windows 版本计划在后续更新，目前尚未提供下载。
+
+来源与开发
+本项目为非官方工具，与 ConcernedApe 无关联，也未获得其背书。
+《星露谷物语》的美术、角色、文本及相关内容版权属于 ConcernedApe。
+参考项目 Stardew Desk：https://github.com/SimoneScoop/Stardew-Desk
+第三方说明见 App 内 Contents/Resources/THIRD_PARTY.md。
+开发与构建说明：https://github.com/HolaYan/Stardew_Journal/blob/main/docs/DEVELOPMENT.md
