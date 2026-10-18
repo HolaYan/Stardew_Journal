@@ -10,13 +10,15 @@ mkdir -p "$BUILD" "$ROOT/dist"
 cd "$ROOT"
 
 FILES=(mac scripts web)
-for item in tests docs README.md THIRD_PARTY.md licenses package.json LICENSE .gitignore "启动Stardew Journal.command" 启动小谷待办.command 启动下一个春天.command 打包说明.txt; do
+for item in tests docs README.md THIRD_PARTY.md licenses package.json LICENSE .gitignore "启动Stardew Journal.command" 打包说明.txt; do
   if [ -e "$item" ]; then FILES+=("$item"); fi
 done
 
 # Deliberate allowlist: no app bundle, personal data, build products, or game art.
 COPYFILE_DISABLE=1 /usr/bin/zip -q -r "$TEMP_ARCHIVE" "${FILES[@]}" \
-  -x 'web/game-assets/*' '*/.DS_Store' '*/._*'
+  -x 'web/game-assets/*' '*/.DS_Store' '*/._*' 'docs/images/*' \
+     'mac/DemoRecorder.swift' 'scripts/build-demo.sh' \
+     'scripts/render-demo-video.swift' 'scripts/subtitle-continuous-demo.swift'
 if /usr/bin/unzip -Z1 "$TEMP_ARCHIVE" | /usr/bin/grep '^web/game-assets/'; then
   echo "源码包校验失败：发现了游戏素材目录。" >&2
   exit 1

@@ -28,7 +28,7 @@ npm run build
 npm start
 ```
 
-`npm run build` 生成 `dist/Meadow.app`；`npm start` 会重新构建并打开它。也可以双击根目录的 `启动Stardew Journal.command`。旧版启动脚本仍可使用；开发构建的包路径、可执行文件和数据目录沿用 Meadow，以保留既有计划。
+`npm run build` 生成 `dist/Meadow.app`；`npm start` 会重新构建并打开它。也可以双击根目录的 `启动Stardew Journal.command`。开发构建的包路径、可执行文件和数据目录沿用 Meadow，以保留既有计划。
 
 ```sh
 npm run preview  # http://127.0.0.1:4173
@@ -36,7 +36,7 @@ npm run package  # 将已经构建好的 App 打包
 sh scripts/package-source.sh
 ```
 
-完整应用包为 `dist/Stardew-Journal-macOS-完整版.zip`，解压后包含 `Stardew Journal.app` 和 `打开说明.txt`。应用包包含运行所需的 `web/game-assets/`；打包脚本检查素材、通用架构和签名。构建目前使用本地临时签名，尚未进行 Developer ID 签名或 Apple 公证。用户首次打开的说明见 [README](../README.md#首次打开时遇到-macos-提示)。
+完整应用包为 `dist/Stardew-Journal-macOS-universal.zip`，解压后包含 `Stardew Journal.app` 和 `打开说明.txt`。应用包包含运行所需的 `web/game-assets/`；打包脚本检查素材、通用架构和签名。构建目前使用本地临时签名，尚未进行 Developer ID 签名或 Apple 公证。用户首次打开的说明见 [README](../README.md#首次打开时遇到-macos-提示)。
 
 源码包为 `dist/Stardew-Journal-source.zip`，不含游戏素材、构建目录或 App。GitHub 的自动 `Source code` 下载同样用于源码开发，不能代替完整 App。
 

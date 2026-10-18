@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 APP="$ROOT/dist/Meadow.app"
-ARCHIVE="$ROOT/dist/Stardew-Journal-macOS-完整版.zip"
+ARCHIVE="$ROOT/dist/Stardew-Journal-macOS-universal.zip"
 STAGING="$(mktemp -d "${TMPDIR:-/tmp}/meadow-package.XXXXXX")"
 trap 'rm -rf "$STAGING"' EXIT
 PACKAGE="$STAGING/Stardew-Journal-macOS"

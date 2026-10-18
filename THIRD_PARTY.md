@@ -13,7 +13,7 @@
 
 Stardew Journal 是非官方桌面待办应用，与 ConcernedApe 无关联，不代表《星露谷物语》官方。
 
-源码仓库和 `Stardew-Journal-source.zip` 不包含提取所得的游戏素材；源码提供本机提取工具，生成内容位于已忽略的 `web/game-assets/`。GitHub Release 的 `Stardew-Journal-macOS-完整版.zip` 则内置应用所需的原版图像、中文对白、物品与食谱数据（包括 `game-data.js`），下载者无需安装游戏或另行提取素材。完整包不包含游戏程序、游戏音乐或个人待办存档。提取过程不修改已安装的游戏文件。
+源码仓库和 `Stardew-Journal-source.zip` 不包含提取所得的游戏素材；源码提供本机提取工具，生成内容位于已忽略的 `web/game-assets/`。GitHub Release 的 macOS 完整发布包 则内置应用所需的原版图像、中文对白、物品与食谱数据（包括 `game-data.js`），下载者无需安装游戏或另行提取素材。完整包不包含游戏程序、游戏音乐或个人待办存档。提取过程不修改已安装的游戏文件。
 
 游戏内容的版权仍属于 ConcernedApe；本项目代码及第三方工具的开源许可不适用于这些游戏内容，打包说明与版权标注不表示获得官方授权或背书。
 

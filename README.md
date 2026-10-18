@@ -1,16 +1,22 @@
 # Stardew Journal · 待办清单
 
-**[下载最新 macOS 版本](https://github.com/HolaYan/Stardew_Journal/releases/latest)** · [查看所有版本](https://github.com/HolaYan/Stardew_Journal/releases)
+**[下载最新 macOS 版本](https://github.com/HolaYan/Stardew_Journal/releases/latest)** · [查看所有版本](https://github.com/HolaYan/Stardew_Journal/releases) · **Windows 版本即将推出**
 
 星露谷总有下一个春天。
 
 把下一周、一个月和三个月的计划种成作物：完成待办，收获入仓；照料动物、去鱼塘休息一会儿，再把食材做成料理放进冰箱。Stardew Journal 是一个以《星露谷物语》为灵感的桌面待办清单。
 
+## 操作演示
+
+约 1 分钟的 2 倍速演示，连续展示村民来访、种下待办、收获、动物照料、钓鱼，以及下厨和冰箱。
+
+[观看／下载 2 倍速演示视频](https://github.com/HolaYan/Stardew_Journal/releases/download/v2.0.0/Stardew-Journal-demo-2x.mp4)
+
 ## 下载与安装
 
 当前版本 **2.0.0**，支持 **macOS 11 及以上**，同一安装包适用于 **Apple 芯片和 Intel Mac**。
 
-1. 打开[最新 Release](https://github.com/HolaYan/Stardew_Journal/releases/latest)，在 **Assets** 中下载 **`Stardew-Journal-macOS-完整版.zip`**。
+1. 打开[最新 Release](https://github.com/HolaYan/Stardew_Journal/releases/latest)，在 **Assets** 中下载 **`Stardew-Journal-macOS-universal.zip`**。
 2. 双击 ZIP 解压，打开解压后的文件夹。
 3. 将 **`Stardew Journal.app`** 拖入访达的 **“应用程序”（Applications）** 文件夹。
 4. 从“应用程序”打开 Stardew Journal，开始种下第一件待办。
@@ -34,7 +40,7 @@ macOS 11／12 的对应入口是 **“系统偏好设置 → 安全性与隐私 
 1. 点击农田空地或 **“＋”**，填写待办和日期，选择一颗种子。
 2. 在 **“下一周／一个月／三个月”** 中查看计划，点击待办文字可以编辑。
 3. 完成时勾选方框，或点击田里的作物收获；对应作物会进入 **仓库**。
-4. 点击屋子进入厨房，按食谱做菜，再到 **冰箱** 查看成果。
+4. 点击屋子进入厨房，勾选 **“只看能做的”**，选择一道菜开始烹饪，再到 **冰箱** 查看成果。
 
 首次打开是空白清单；想先体验一下，可以在设置中添加示例待办。
 

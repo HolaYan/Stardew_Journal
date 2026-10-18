@@ -8,3 +8,11 @@ tmp/
 .env
 .env.*
 web/game-assets/
+# Local recording tools and legacy launchers are kept outside the published source.
+mac/DemoRecorder.swift
+scripts/build-demo.sh
+scripts/render-demo-video.swift
+scripts/subtitle-continuous-demo.swift
+启动下一个春天.command
+启动小谷待办.command
+docs/images/

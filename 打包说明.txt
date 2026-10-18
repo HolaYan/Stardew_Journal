@@ -5,7 +5,7 @@ Stardew Journal 2.0.0 · 待办清单 · macOS 完整版
 https://github.com/HolaYan/Stardew_Journal/releases/latest
 
 安装
-1. 下载 Stardew-Journal-macOS-完整版.zip，双击解压。
+1. 下载 Stardew-Journal-macOS-universal.zip，双击解压。
 2. 将解压后的 Stardew Journal.app 拖入“应用程序”（Applications）文件夹。
 3. 从“应用程序”打开 Stardew Journal。
 
